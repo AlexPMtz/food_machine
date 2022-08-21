@@ -1,0 +1,13 @@
+.color{
+  background: linear-gradient(70deg, #97cfee, #8950F0);;
+}
+
+.fontStyleRight{
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.fontStyleLeft{
+  font-size: 25px;
+  margin-left: 5px;
+}
