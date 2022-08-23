@@ -119,6 +119,12 @@ const Machine = () => {
                         ${cambio.total}
                       </span>
                     </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Operaciones realizadas para calular el cambio:
+                      <span className="badge bg-primary rounded-pill">
+                        {operationAmount}
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
