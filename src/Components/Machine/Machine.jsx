@@ -10,8 +10,9 @@ const Machine = () => {
   let userName = LocalStorage.getItem('firstName');
   let navigate = useNavigate();
   let [montoIngresado, setMontoIngresado] = useState(0)
-  let [montoAPagar, setmontoAPagar] = useState(0)
-  let cambio = 0
+  let [montoAPagar, setMontoAPagar] = useState(0)
+  let [transaccion, settransaccion] = useState([])
+  let [cambio, setCambio] = useState(0)
 
   const onOut = () => {
     LocalStorage.deleteItem('firstName');
@@ -19,7 +20,8 @@ const Machine = () => {
   }
 
   const handleProducts = (product) => {
-    setmontoAPagar(montoAPagar += product.price)
+    settransaccion(product)
+    setMontoAPagar(montoAPagar += product.price)
   }
 
   const handlePaymet = (payment) => {
@@ -27,6 +29,7 @@ const Machine = () => {
   }
 
   const pay = () => {
+    setCambio(montoIngresado - montoAPagar)
     if( montoIngresado > montoAPagar){
 
     }
@@ -47,7 +50,7 @@ const Machine = () => {
               <span>Monto a pagar: ${montoAPagar}</span>
             </div>
             <div className="col d-flex justify-content-center">
-              <span>Monto a ingresado: ${montoIngresado}</span>
+              <span>Monto ingresado: ${montoIngresado}</span>
             </div>
           </div>
 
