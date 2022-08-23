@@ -8,11 +8,5 @@
   margin-top: 100px;
   border-radius: 5px;
   background-color: #f8f9fa;
-  min-width: 50%;
-}
-
-.error {
-  font-size: 12px;
-  font-weight: bold;
-  color: red;
+  min-width: 70%;
 }
