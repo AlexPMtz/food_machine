@@ -44,7 +44,6 @@ const Machine = () => {
 
   const pay = () => {
     let cambioRestante = montoIngresado.total - product.price;
-    console.log("cambio:", cambioRestante);
     let amountChage = {
       total: cambioRestante,
       100: 0,
@@ -98,25 +97,59 @@ const Machine = () => {
           </div>
           {didPay ? (
             <>
+            <br />
               <div className="row">
-                <div className="col d-flex justify-content-center">
-                  <span>Monto pagado: ${product?.price ?? 0}</span>{" "}
-                  {/* operador opcional */}
-                </div>
-                <div className="col d-flex justify-content-center">
-                  <span>Monto ingresado: ${montoIngresado.total}</span>
+                <div className="col">
+                  <ul className="list-group">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Monto pagado:
+                      <span className="badge bg-primary rounded-pill">
+                        ${product?.price ?? 0}
+                      </span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Monto ingresado:
+                      <span className="badge bg-primary rounded-pill">
+                        ${montoIngresado.total}
+                      </span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Cambio entregado:
+                      <span className="badge bg-primary rounded-pill">
+                        ${cambio.total}
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
+              <br />
               <div className="row">
-                <span>Cambio entregado: ${cambio.total}</span>
-              </div>
-              <div className="row">
-                <span>Desglose de cambio: </span>
-                <ul>
-                  <li>Billetes de 100: {cambio[100]}</li>
-                  <li>Billetes de 50: {cambio[50]}</li>
-                  <li>Monedas de 10: {cambio[10]}</li>
-                </ul>
+                <div className="col">
+                  <span className="d-flex justify-content-center">
+                    <b>Desglose de cambio</b>
+                  </span>
+                  <br />
+                  <ul className="list-group">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Billetes de 100:
+                      <span className="badge bg-primary rounded-pill">
+                        {cambio[100]}
+                      </span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Billetes de 50:
+                      <span className="badge bg-primary rounded-pill">
+                        {cambio[50]}
+                      </span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      Monedas de 10:
+                      <span className="badge bg-primary rounded-pill">
+                        {cambio[10]}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </>
           ) : (
@@ -148,6 +181,7 @@ const Machine = () => {
               <button
                 className="btn btn-outline-danger w-100 mt-3"
                 onClick={pay}
+                disabled={product.price === undefined || montoIngresado.total < product.price}
               >
                 Pagar
               </button>
