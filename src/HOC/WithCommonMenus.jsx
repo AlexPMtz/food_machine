@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../Components/Navbar/Navbar'
 import Styles from './WithCommonMenus.module.css';
+import Navbar from '../Components/Navbar/Navbar'
 
 export default function WithCommonMenus(Component){
 

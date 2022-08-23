@@ -19,8 +19,6 @@ const Ticket = () => {
     );
   }, []);
 
-  console.log("--->", txs);
-
   return (
     <>
       <div className={Class.mainContainer}>
@@ -41,7 +39,7 @@ const Ticket = () => {
               <tbody>
                 {
                   txs.map(({ change, payment, product }, count = 0) => (
-                    <tr key={`_id: ${product.productName}`}>
+                    <tr key={`_id: ${count}`}>
                       <th scope='row'>{ count + 1 }</th>
                       <td>{product.productName}</td>
                       <td>${product.price}</td>

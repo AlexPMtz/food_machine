@@ -1,6 +1,6 @@
 import React from 'react'
-import Class from './Navbar.module.css'
 import { MdFastfood } from 'react-icons/md'
+import Class from './Navbar.module.css'
 
 const Navbar = () => {
 
